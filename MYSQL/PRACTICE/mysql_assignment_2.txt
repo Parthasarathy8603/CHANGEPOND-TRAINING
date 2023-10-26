@@ -1,0 +1,42 @@
+1. Find the number of Male (M) and Female (F) employees in the database and order the counts in descending order
+2. Display the month and total hires for the month with the most hires from the table employee
+3. # Retrieve list of all female employees whose first name is either 'Kellie' or 'Aruna'
+4. # Select names of all departments between department numbers d003 and d006
+5. # Select employee numbers of all individuals who have signed more than one contract after 2000-01-01
+6. # Select all female employees in the the year 2000 or after
+
+answers:
+
+1.select gender, count(gender)as no_of_employees from employees group by gender order by count(gender) desc;
+
+2.select month(hire_date),count(month(hire_date))"total_hiring"from employees group by month(hire_date)  
+having max(total_hiring) order by count(month(hire_date)) desc;
+
+3.select gender, first_name from employees where gender='f'and first_name in('kellie','aruna');
+
+4.select dept_name from departments where dept_no > 'd003' and dept_no<'d006';
+
+5.
+
+6.select gender, hire_date from employees where gender='f' and year(hire_date) >= 2000;
+
+7.select t.title,round(avg(s.salary),2) from titles t, salaries s where temp_no =s.emp_no
+ group by title order by round(avg(s.salary),2) desc;
+
+8.select e.first_name, e.last_name, count(d.dept_no) from employees e inner join dept_emp d on e.emp_no =d.emp_no group by d.emp_no having count(d.dept_no)>=2 order by first_name asc;
+
+9.select first_name,last_name,salary from employees e join salaries s on e.emp_no=s.emp_no where salary = (select max(salary) from salaries);
+
+10.select first_name,last_name,salary from employees e join salaries s on e.emp_no=s.emp_no where salary = (select max(salary) from salaries where salary < (select max(salary) from salaries));
+
+11.select dept.dept_name, min(timestampdiff(year,e.birth_date,e.hire_date)) as age_hire_date from employees e 
+join dept_emp d on e.emp_no=d.emp_no 
+join departments dept on d.dept_no=dept.dept_no 
+group by dept.dept_name;
+
+12.select e.first_name, dept.dept_name from employees e
+join dept_emp de on e.emp_no = de.emp_no
+join departments dept on de.dept_no = dept.dept_no
+where e.first_name not like '%A%'
+and e.first_name not like '%E%' and e.first_name not like '%I%' 
+and e.first_name not like '%O%' and e.first_name not like '%U%';

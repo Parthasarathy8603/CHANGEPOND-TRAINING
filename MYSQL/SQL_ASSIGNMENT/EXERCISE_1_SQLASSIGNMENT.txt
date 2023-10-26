@@ -1,0 +1,54 @@
+EXCERCISE NO-1:
+
+1a.select * from actor;
+1b.select last_name from actor;
+1c.select title,description,rental_duration,rental_rate,rental_duration*rental_rate as total_rental_cost from film;
+
+2a.select distinct(last_name) from actor;
+2b.select distinct(last_name) from actor;
+2c.select distinct(rating) from film;
+
+3a.select title,description,rating,length from film where length>=180;
+3b.select payment_id,amount,payment_date from payment where payment_date >= '2005-05-27';
+3c.select payment_id,amount,payment_date from payment where payment_date = '2005-05-27';
+
+3d.select * from customer where first_name like '%N' and last_name like 'S%';
+3e.select * from customer where active=0 or last_name like 'M%';
+3f.select * from category where category_id > 4 and (name like 'C%' or name like'S%' or name like'T%');
+3g.select staff_id, first_name, last_name, address_id, picture, email, store_id,active,username from staff where password is not null;
+3h.select staff_id, first_name, last_name, address_id, picture, email, store_id,active,username from staff where password is null;
+
+4a.select phone,district from address where district in('California', 'England', 'Taipei','westjava' );
+4b.select payment_id,amount,date(payment_date) from payment where date(payment_date) in ('2005-05-25','2005-05-27','2005-05-29');
+4c.SELECT * FROM film WHERE rating IN ('G', 'PG-13', 'NC-17');
+
+5a.select * from payment where payment_date between '2005-05-25 00:00:00' and '2005-05-29 23:59:59' ;
+5b.select title,description,release_year,rental_duration*rental_rate"total_rental_cost" from film where length between '100' and '120';
+
+6a.select title,description,release_year from film where description like "A thoughtful%";
+6b.select title,description,rental_duration from film where description like "%boat";
+6c.select title,description,rental_rate from film where description like "%Database%" and length > 180;
+
+7a.select * from payment limit 20;
+7b.select customer_id,payment_date, amount from payment where amount > 5 limit 1000 offset 1000;
+7c.select * from customer limit 100,100;
+
+8a.select * from film order by length;
+8b.select distinct(rating) from film order by rating ;
+8c.select payment_date, amount from payment order by amount desc limit 20;
+8d.select title,description,special_features,length,rental_duration from film where special_features like '%Behind the scenes%' and length <120 and rental_duration between '5' and '7' order by length desc;
+
+9a.select c.first_name as customer_first_name, c.last_name as customer_last_name,a.first_name as actor_first_name, a.last_name as actor_last_name from customer c left join actor a on c.last_name=a.last_name;
+9b.select c.first_name as customer_first_name, c.last_name as customer_last_name,a.first_name as actor_first_name, a.last_name as actor_last_name from customer c right join actor a on c.last_name=a.last_name;
+9c.select c.first_name as customer_first_name, c.last_name as customer_last_name,a.first_name as actor_first_name, a.last_name as actor_last_name from customer c inner join actor a on c.last_name=a.last_name;
+9d.select c.city,ctry.country from city c left join country ctry on c.country_id = ctry.country_id ;
+9e.select f.title,f.description,f.release_year,l.name from film f left join language l on f.language_id = l.language_id;
+9f.select s.first_name, s.last_name, a.address, a.address2, c.city, a.district, a.postal_code from staff s left join address a on s.address_id = a.address_id left join city c on a.city_id = c.city_id;
+
+
+
+
+
+
+
+

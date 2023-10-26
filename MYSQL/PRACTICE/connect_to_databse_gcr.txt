@@ -1,0 +1,92 @@
+connect to a database in postgres
+\c dvdrental
+
+to find all the tables insdie the database dvdrental
+\dt or \dt+
+
+to describe the specific customer table in database
+\d customer \d+ customer
+
+select * from customer
+
+select first_name, last_name from customer
+
+select first_name || ' ' || last_name as fullname from customer
+
+select 15*20
+
+select first_name || ' ' || last_name fullname from customer
+order by first_name asc;
+
+select first_name || ' ' || last_name fullname from customer
+order by first_name desc;
+
+select first_name || ' ' || last_name fullname from customer
+order by first_name asc, last_name desc;
+
+select first_name ,len(first_name) from customer
+
+select first_name ,length(first_name) len from customer
+order by len desc
+
+create table scores
+(num int)
+
+insert into scores(num) values (181),(264),(223),(null)
+
+select num from scores
+order by num nulls last
+
+select num from scores
+order by num nulls first
+
+select distinct customer_id from payment;
+
+select distinct customer_id,staff_id from payment;
+
+select distinct customer_id,staff_id from payment
+order by customer_id;
+
+select * from customer where first_name = 'Jamie'
+
+select * from customer where first_name = 'Jamie' and last_name='Waugh'
+
+select first_name , last_name from customer where last_name = 'Rodriguez' or first_name = 'Adam'
+
+select * from customer where first_name in ('Ann','Anne','Annie')
+
+select * from city where city like 'al%'
+
+select * from city where country_id between 91 and 95
+
+select * from city where city <> 'Lungtan'  and country_id between 91 and 95
+
+select * from city where city <> 'Lungtan'  and country_id between 91 and 95 limit 10
+
+select film_id,title from film order by title fetch first row only
+
+select film_id,title from film order by title fetch first 5 row only
+
+
+select film_id,title from film order by film_id offset 2 fetch first 5 row only
+
+select customer_id from rental
+where cast(return_Date as Date)= '2005-05-27'
+
+select a,fruit_a,b,fruit_b from basket_A
+inner join basket_b on fruit_a = fruit_b
+
+
+select a,fruit_a,b,fruit_b from basket_A
+left join basket_b on fruit_a = fruit_b
+
+
+select a,fruit_a,b,fruit_b from basket_A
+right join basket_b on fruit_a = fruit_b
+
+select a,fruit_a,b,fruit_b from basket_A
+full outer join basket_b on fruit_a = fruit_b
+
+select a,fruit_a,b,fruit_b from basket_A
+full join basket_b on fruit_a = fruit_b
+where fruit_A is null or fruit_b is null

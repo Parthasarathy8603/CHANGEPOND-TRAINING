@@ -1,0 +1,5 @@
+EXERCISE NO-6
+
+6.1. select s.name as sci_names,p.name as pro_names,hours as working_hours from scientists s join assignedto a on s.SSN=a.scientist join projects p on a.project=p.code order by pro_names,sci_names;
+
+6.2. select pro.name,a.project from projects pro left join assignedto a on pro.code=a.project where a.project is null;

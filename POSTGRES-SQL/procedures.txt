@@ -1,0 +1,68 @@
+INSERT INTO `sql_assignment`.`deduction_table`
+(` DED_TYPE`,
+`DED_PERCENT`,
+`CATEGORY`,
+`GENDER`)
+VALUES
+('insurance',5,'null','null'),
+('sa',5,'null','null'),
+('pref_tax_m_8001',200,'f','m'),
+('pref_tax_m_8000',150,'f','m'),
+('pref_tax_f_2500',200,'f','f'),
+('pref_tax_f_2499',0,'f','f');
+
+INSERT INTO `sql_assignment`.`allowance_table`
+(`allow_type`,
+`allow_percent`)
+VALUES
+('TA',15),('DA',15),('HRA',15),('BONUS',15);
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getallowance`(in salary int, out total_allowance bigint)
+BEGIN
+declare finished int default 0;
+declare allowance bigint default 0;
+declare curForAllowance cursor for select allow_percent from allowance_table limit 10;
+
+declare continue handler for not found set finished=1;
+
+set total_allowance = 0;
+open curForAllowance;
+
+getAllowance:loop
+
+fetch curForAllowance into allowance;
+ if finished=1 then leave getAllowance;
+ end if;
+ set total_allowance=(salary*allowance/100)+total_allowance;
+ end loop getAllowance;
+ close curForAllowance;
+
+END
+
+
+call getallowance('10000',@allowance);
+select @allowance;
+
+
+
+CREATE PROCEDURE `getdeduction` (in salary int, out total_allowance bigint)
+BEGIN
+declare finished int default 0;
+declare allowance bigint default 0;
+declare curForAllowance cursor for select allow_percent from allowance_table limit 10;
+
+declare continue handler for not found set finished=1;
+
+set total_allowance = 0;
+open curForAllowance;
+
+getAllowance:loop
+
+fetch curForAllowance into allowance;
+ if finished=1 then leave getAllowance;
+ end if;
+ set total_allowance=(salary*allowance/100)+total_allowance;
+ end loop getAllowance;
+ close curForAllowance;
+END

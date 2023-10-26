@@ -1,0 +1,61 @@
+EXERCISE NO-2
+
+2.1.select lastname from employees;
+
+2.2.select distinct(lastname) from employees;
+
+2.3.select * from employees where lastname = 'smith';
+
+2.4.select * from employees where lastname = 'smith' or lastname ='doe';
+
+2.5.select * from employees where department='14';
+
+2.6.select * from employees where department='37' or department='77';
+
+2.7.select * from employees where lastname like 'S%';
+
+2.8.select sum(budget) from departments;
+
+2.9.select department,count(*) from employees group by department;
+
+2.10.select * from employees,departments where employees.Department=departments.code;
+
+2.11.select * from employees,departments where employees.Department=departments.code;
+
+2.12.select e.name,e.lastname,d.code from employees e join departments d on e.department=d.code where d.budget >60000;
+
+2.13.select name,budget from departments where budget > (select avg(budget) from departments);
+
+2.14.select name from departments where code in (select department from employees group by department having count(department)>2);
+
+2.15.select e.name,e.lastname,d.budget from employees e join departments d on e.Department=d.code where budget = (select min(Budget) from departments where budget > (select min(Budget) from departments)); 
+
+2.16.insert into departments values(11,'Quality Assurance',40000);
+     insert into employees values(847219811,'Mary','Moore',11);
+
+2.17.#10%=o.1 on reducing 1-0.1 = 0.9#
+    update departments set budget = (budget*0.9);
+
+2.18.update employees set department=14 where department=77;
+
+2.19.delete from employees where department=14;
+
+2.20.delete  from employees where department in (select code from departments where budget >=60000);
+
+2.21.truncate table employees;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

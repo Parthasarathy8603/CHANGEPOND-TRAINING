@@ -1,0 +1,35 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_deduction`(in salary bigint, in gender char(1),out deduction bigint)
+BEGIN
+declare finished int default 0;
+declare total_deduction int default 0;
+declare categor varchar(20);
+declare d_type varchar(50);
+declare deduction bigint;
+
+declare curForname cursor for select ifnull(ded_percent,0),ifnull(category,'V'),DED_TYPE from deduction_table;
+
+declare continue handler for not found set finished=1;
+set deduction = 0;
+
+open curForname;
+deduct:loop
+fetch curForname into total_deduction,categor,d_type;
+if finished =1 
+		then leave deduct;
+    end if;
+if categor='f' then
+	if salary>8000 and gen_der='m' and d_type like '%8001%' then
+		set deduction = total_deduction+deduction;
+	elseif salary<8000 and gen_der='m'and d_type like '%8000%' then
+		set deduction = total_deduction+deduction;
+	elseif salary>25000 and gen_der='f'and d_type like '%25000%' then
+		set deduction = total_deduction+deduction;
+	elseif salary<25000 and gen_der='f' and d_type like '%24999%'then
+		set deduction = total_deduction+deduction;
+        end if;
+else
+	set deduction = (salary*total_deduction/100)+deduction;
+end if;
+end loop deduct;
+close curForname;
+END

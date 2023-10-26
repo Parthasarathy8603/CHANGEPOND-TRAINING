@@ -1,0 +1,7 @@
+EXERCISE-10
+
+10.1.select p.id,p.name,a.address,a.updatedate from people p,address a where p.id=a.id 
+     and updatedate in (select min(updatedate)from address group by id);
+
+10.2.select p.id,p.name,a.address,a.updatedate from people p,address a where p.id=a.id 
+     and updatedate in (select max(updatedate)from address group by id);

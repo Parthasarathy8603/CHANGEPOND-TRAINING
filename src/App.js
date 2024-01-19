@@ -15,7 +15,13 @@ import PaymentPage from './Fees/PaymentPage';
 import UpiPaymentForm from './Fees/UpiPaymentForm';
 import CourseTable from './Fees/CourseTable';
 import AdminCourseTable from './Admin/AdminCourseTable';
+import Navbar from './Component/Navbar';
 
+import NavbarAdmin from './Component/NavbarAdmin'
+import AdmSideNavRoute from './Component/AdminConsole/AdmSideNavRoute'
+import Footer from './Component/Footer'
+import StdSideNav from './Component/StudentConsole/StdSideNav';
+import StdSideNavRoute from './Component/StudentConsole/StdSideNavRoute';
 
 
 
@@ -25,16 +31,28 @@ const App = () => {
        {/* <FeesDetails/> */}
       {/* <StudentFormComponent  /> */}
       {/* <ExamFees/> */}
-      <Homepage/>
+      {/* <Homepage/> */}
       {/* <AdminCourseTable/> */}
       {/* <CourseTable/> */}
       {/* <UpiPaymentForm/> */}
-      <MainContent/>
+      {/* <MainContent/> */}
       {/* <Sidebar/> */}
       {/* <NetbankingForm/> */}
      {/* <CardDetails/> */}
      {/* <PaymentPage/> */}
   
+
+{/* 
+     <Navbar></Navbar>
+<NavbarAdmin></NavbarAdmin>
+<AdmSideNavRoute></AdmSideNavRoute>
+<Footer></Footer> */}
+
+ <Navbar></Navbar>
+ 
+ <StdSideNavRoute></StdSideNavRoute>
+ {/* <StdSideNav></StdSideNav>  */}
+ <Footer></Footer>
 
     </div>
   );

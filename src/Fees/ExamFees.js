@@ -29,12 +29,13 @@ const ExamFees = ({ onSubmit }) => {
     }));
   };
 
-  const handleDateChange = (e) => {
-    const { value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      paydate: value,
-    }));
+  const handleDateChange = (event) => {
+    const selectedDate = new Date(event.target.value);
+
+    // Check if the selected date is today or a past date
+    const isPastDate = selectedDate <= new Date();
+
+    setSelectedDate(isPastDate ? selectedDate : new Date());
   };
 
   const handleSubmit = async (e) => {
@@ -48,10 +49,15 @@ const ExamFees = ({ onSubmit }) => {
       return;
     }
 
-
+    const formattedDate = selectedDate.toISOString().split('T')[0];
 
     try {
-      await axios.post('http://localhost:8080/examfees', formData);
+      const updatedFormData = {
+        ...formData,
+        paydate: formattedDate,
+      };
+
+      await axios.post('http://localhost:8080/examfees', updatedFormData);
       console.log(formData);
       window.location.href = '/payment'; // Redirect to the default page after successful submission
     } catch (error) {
@@ -62,7 +68,7 @@ const ExamFees = ({ onSubmit }) => {
   const validateForm = (data) => {
     let errors = {};
 
-    if (!errors.regId) {
+    if (!data.regId) {
       errors.regId = 'Student ID is required';
     }
     if (!data.fullName) {

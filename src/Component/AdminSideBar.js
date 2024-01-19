@@ -20,7 +20,7 @@ import ListItemText from '@mui/material/ListItemText';
 import FolderIcon from '@mui/icons-material/Folder';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AssessmentIcon from '@mui/icons-material/Assessment';
-import StudentFormComponent from '../Component/SideBar'; // Import your StudentFormComponent
+import StudentFormComponent from './SideBar'; // Import your StudentFormComponent
 import { Switch } from '@mui/material';
 import MainContent from './MainContent';
 
@@ -71,7 +71,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-const SideBar = () => {
+const AdminSideBar = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -129,9 +129,9 @@ const SideBar = () => {
           <Divider />
           <List>
 
-            <Link to="/course-fee-details"style={{ textDecoration: 'none', color: 'inherit' }}><FolderIcon />COURSE FEE DETAILS </Link><br></br>
-            <Link to="/registration-fees"style={{ textDecoration: 'none', color: 'inherit' }}><AssignmentIcon />REGISTRATION FEES</Link><br></br>
-            <Link to="/exam-fees"style={{ textDecoration: 'none', color: 'inherit' }}><AssessmentIcon />EXAM FEES </Link><br></br>             {/* {["COURSE FEE DETAILS", "REGISTRATION FEES", "EXAM FEES"].map((text, index) => (
+            <Link to="/admincourses"style={{ textDecoration: 'none', color: 'inherit' }}><FolderIcon />COURSE FEE DETAILS </Link><br></br>
+            <Link to="/feelist"style={{ textDecoration: 'none', color: 'inherit' }}><AssignmentIcon />FEES PAYMENT LIST</Link><br></br>
+            <Link to="/examfeelist"style={{ textDecoration: 'none', color: 'inherit' }}><AssessmentIcon />EXAM FEES LIST</Link><br></br>             {/* {["COURSE FEE DETAILS", "REGISTRATION FEES", "EXAM FEES"].map((text, index) => (
               <ListItem key={text} disablePadding>
                 <Link to={`/${text.toLowerCase().replace(/\s/g, '-')}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <ListItemButton>
@@ -156,4 +156,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default AdminSideBar;

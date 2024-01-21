@@ -42,14 +42,13 @@ const App = () => {
      {/* <PaymentPage/> */}
   
 
-{/* 
-     <Navbar></Navbar>
+
+     {/* <Navbar></Navbar>
 <NavbarAdmin></NavbarAdmin>
 <AdmSideNavRoute></AdmSideNavRoute>
 <Footer></Footer> */}
 
  <Navbar></Navbar>
- 
  <StdSideNavRoute></StdSideNavRoute>
  {/* <StdSideNav></StdSideNav>  */}
  <Footer></Footer>

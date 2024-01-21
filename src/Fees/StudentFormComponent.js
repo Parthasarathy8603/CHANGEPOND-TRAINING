@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const StudentFormComponent = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -65,8 +66,10 @@ const StudentFormComponent = ({ onSubmit }) => {
     }
 
 
+const isConfirmed=window.confirm("Do you want to submit this form");
 
-
+if(isConfirmed)
+{
     try {
       await axios.post('http://localhost:8080/payments', formData);
       console.log(formData);
@@ -74,7 +77,9 @@ const StudentFormComponent = ({ onSubmit }) => {
     } catch (error) {
       console.error('Error creating user:', error);
     }
+  }
   };
+
 
   const validateForm = (data) => {
     let errors = {};
@@ -106,13 +111,24 @@ const StudentFormComponent = ({ onSubmit }) => {
   const isInstallment = formData.paymentOption === 'Installment';
 
   return (
-    <div>
+    <div
+    style={{
+      backgroundImage: 'url("https://media.istockphoto.com/id/1576358367/photo/happy-computer-science-professor-teaching-students-during-a-class-in-the-classroom.jpg?s=1024x1024&w=is&k=20&c=CVAkAMmhsnMMG8sk9EP0Vam41B9Z5EpAsYxQhUE-iDs=")', // Replace with your actual image URL
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      
+    }}>
       {isFormSubmitted ? (
         <p className="submitted-message">Form submitted successfully!</p>
       ) : (
-        <div className="container" style={{width:'50%'}}>
+        <div className="container " style={{width:'50%' ,backgroundColor:'rgba(255,255,255,0.8)'}}>
           <h1>Payment of Course Fee</h1>
-          <form>
+          <form >
             <div>
               <label>Student ID:</label>
               <input type="text" name="regId" value={formData.regId} onChange={handleChange} />
@@ -215,8 +231,12 @@ const StudentFormComponent = ({ onSubmit }) => {
               onChange={handleDateChange}
               max={new Date().toISOString().split('T')[0]} // Set the maximum date to today
             />
-          </div>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
+          </div><br/>
+          <button type="submit" style={{borderRadius:'10px'}} onClick={handleSubmit}>Submit</button>
+          &nbsp;
+            <Link to="/sidebar">
+              <button style={{ borderRadius: '10px'}}> Back   </button>
+            </Link>
           </form>
         </div>
       )}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const ExamFees = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -50,7 +51,11 @@ const ExamFees = ({ onSubmit }) => {
     }
 
     const formattedDate = selectedDate.toISOString().split('T')[0];
+    const isConfirmed=window.confirm("Do you want to submit this form");
 
+    if(isConfirmed)
+    {
+      
     try {
       const updatedFormData = {
         ...formData,
@@ -62,7 +67,8 @@ const ExamFees = ({ onSubmit }) => {
       window.location.href = '/payment'; // Redirect to the default page after successful submission
     } catch (error) {
       console.error('Error creating user:', error);
-    }
+    }   
+  }
   };
 
   const validateForm = (data) => {
@@ -88,11 +94,22 @@ const ExamFees = ({ onSubmit }) => {
   };
 
   return (
-    <div>
+    <div
+    style={{
+      backgroundImage: 'url("https://media.istockphoto.com/id/1576358367/photo/happy-computer-science-professor-teaching-students-during-a-class-in-the-classroom.jpg?s=1024x1024&w=is&k=20&c=CVAkAMmhsnMMG8sk9EP0Vam41B9Z5EpAsYxQhUE-iDs=")', // Replace with your actual image URL
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      
+    }}>
       {isFormSubmitted ? (
         <p className="submitted-message">Form submitted successfully!</p>
       ) : (
-        <div className="container" style={{width:'50%'}}>
+        <div className="container" style={{width:'50%' ,backgroundColor:'rgba(255,255,255,0.8)'}}>
           <h1>Payment of Course Fee</h1>
           <form>
             <div>
@@ -153,7 +170,11 @@ const ExamFees = ({ onSubmit }) => {
               max={new Date().toISOString().split('T')[0]} // Set the maximum date to today
             />
           </div><br></br>
-            <button type="submit" onClick={handleSubmit} style={{border:''}}>Submit</button>
+            <button type="submit" onClick={handleSubmit} style={{borderRadius:'10px'}}>Submit</button>
+            &nbsp;
+            <Link to="/sidebar">
+              <button style={{ borderRadius: '10px'}}> Back   </button>
+            </Link>
           </form>
         </div>
       )}

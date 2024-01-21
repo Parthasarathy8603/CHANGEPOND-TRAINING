@@ -54,7 +54,7 @@ const CourseTable = () => {
         </table>
       )}
       <button>
-            <Link to="/">Back</Link>
+            <Link to="/sidebar">Back</Link>
           </button>
     </div>
   );

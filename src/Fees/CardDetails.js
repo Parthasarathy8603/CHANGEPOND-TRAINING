@@ -18,6 +18,9 @@ const CardDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const isconfirmed = window.confirm("do you want to complete the payment");
+    if(isconfirmed)
+    {
     // Implement your logic for handling credit card details securely here
     console.log('Submitted Credit Card Details:', formData);
     // Reset the form after submission
@@ -27,6 +30,7 @@ const CardDetails = () => {
       expirationDate: '',
       cvv: '',
     });
+  }
   };
 
   return (

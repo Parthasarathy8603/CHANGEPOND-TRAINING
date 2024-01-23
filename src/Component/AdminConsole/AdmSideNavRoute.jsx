@@ -49,7 +49,7 @@ const AdmSideNavRoute = () => {
                 <Route path="/M14" element={<M14/>}></Route>
 
 
-                {/* <Route path='/adminsidebar' element={<AdminSideBar></AdminSideBar>}></Route> */}
+                <Route path='/adminsidebar' element={<AdminSideBar></AdminSideBar>}></Route>
                     <Route path='/admincourses' element={<AdminCourseTable></AdminCourseTable>}></Route>
                     <Route path='/feelist' element={<FeePaymentList></FeePaymentList>}></Route>
                     <Route path='/examfeelist' element={<ExamPaymentList></ExamPaymentList>}></Route>

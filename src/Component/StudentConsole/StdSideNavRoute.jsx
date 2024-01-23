@@ -10,7 +10,6 @@ import S6 from './S6';
 import S7 from './S7';
 
 import StdSideNav from './StdSideNav';
-import SideBar from '../SideBar';
 import StudentFormComponent from '../../Fees/StudentFormComponent';
 import CourseTable from '../../Fees/CourseTable';
 import ExamFees from '../../Fees/ExamFees';
@@ -37,7 +36,7 @@ const StdSideNavRoute = () => {
                 <Route path="/S7" element={<S7/>}></Route>
 
 
-                 <Route path='/sidebar' element={<SideBar/>}></Route> 
+                 
                 <Route path='/registration-fees' element={<StudentFormComponent/>}></Route>
                     <Route path='/course-fee-details' element={<CourseTable/>}></Route>
                     <Route path='/exam-fees' element={<ExamFees/>}></Route>

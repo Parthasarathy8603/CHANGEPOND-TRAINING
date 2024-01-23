@@ -170,9 +170,9 @@ const ExamFees = ({ onSubmit }) => {
               max={new Date().toISOString().split('T')[0]} // Set the maximum date to today
             />
           </div><br></br>
-            <button type="submit" onClick={handleSubmit} style={{borderRadius:'10px'}}>Submit</button>
+            <button type="submit" style={{borderRadius:'10px', marginLeft:'120px', marginRight:'120px'}} onClick={handleSubmit} >Submit</button>
             &nbsp;
-            <Link to="/sidebar">
+            <Link to="/S5">
               <button style={{ borderRadius: '10px'}}> Back   </button>
             </Link>
           </form>

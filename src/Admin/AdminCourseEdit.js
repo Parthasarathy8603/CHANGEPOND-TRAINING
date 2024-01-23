@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const AdminCourseEdit = ({onCancelEdit, onEditCourse }) => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ const AdminCourseEdit = ({onCancelEdit, onEditCourse }) => {
     totalfees: '',
   });
   const {id}=useParams()
+  const navigate = useNavigate();
 
 //   useEffect(() => {
 //     const fetchCourse = async () => {
@@ -52,6 +53,7 @@ useEffect(() => {
     // }
 
     const confirmed = window.confirm(`Are you sure you want to update the details?`);
+    
 
     if (!confirmed) {
       return;
@@ -62,7 +64,7 @@ useEffect(() => {
 
         window.alert(`  details Updated Successfully!..`);
 
-        //navigate("/M3");
+        navigate("/admincourses");
       })
       .catch((err) => {
         console.error(err);
@@ -126,10 +128,11 @@ useEffect(() => {
           required
         />
       </div>
-      <button type="submit">Edit Course</button>
-      <button type="button" onClick={onCancelEdit}>
+      <button type="submit" style={{margin:'10px', marginLeft:'605px', marginRight:'605px'}}>Edit Course</button><br></br>
+      <Link to='/admincourses'><button type="button" onClick={onCancelEdit}>
         Cancel
       </button>
+      </Link>
     </form>
   );
 };

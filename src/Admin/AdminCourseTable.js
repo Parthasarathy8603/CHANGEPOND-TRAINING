@@ -178,7 +178,7 @@ const AdminCourseTable = () => {
 
   const handleDelete= async (courseid)=>{
     try{
-      const confirmedrole=window.confirm(`are you sure want to delete role`);
+      const confirmedrole=window.confirm(`are you sure want to delete course details`);
 
       if(!confirmedrole){
         return;
@@ -187,7 +187,7 @@ const AdminCourseTable = () => {
       await fetch(`http://localhost:8080/delete/${courseid}`,{
         method:'DELETE',
       });
-      window.alert(`role has been deleted`);
+      window.alert(`course details has been deleted`);
       fetchData();
     }catch (error) {
       console.error(`Error deleting with ID ${courseid}:`, error);
@@ -216,7 +216,7 @@ const AdminCourseTable = () => {
         <Link to="/addcourse" className="btn btn-success" style={{marginLeft:'800px'}}
             onClick={() => setShowAddForm(true)}>Add Course</Link>
           &emsp;
-            <Link className="btn btn-success" to="/">Back</Link>
+            <Link className="btn btn-success" to="/adminsidebar">Back</Link>
           <table className="table table-bordered text-center">
             <thead>
               <tr>

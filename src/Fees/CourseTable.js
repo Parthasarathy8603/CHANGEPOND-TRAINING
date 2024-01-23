@@ -30,7 +30,7 @@ const CourseTable = () => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <table className="table " style={{border: '2px solid black',textAlign:'center' }}>
+        <table className="table table-bordered " style={{border: '2px solid black',textAlign:'center' }}>
           <thead>
             <tr className='text-center'>
               <th>Course ID</th>
@@ -43,18 +43,18 @@ const CourseTable = () => {
           <tbody  className='text-center'>
             {courses.map(course => (
               <tr  key={course.courseid}>
-                <td>{course.courseid}</td>
-                <td>{course.coursename}</td>
-                <td>{course.registrationfees}</td>
-                <td>{course.coursefees}</td>
-                <td>{course.totalfees}</td>
+                <td className='text-center'>{course.courseid}</td>
+                <td className='text-center'>{course.coursename}</td>
+                <td className='text-center'>{course.registrationfees}</td>
+                <td className='text-center'>{course.coursefees}</td>
+                <td className='text-center'>{course.totalfees}</td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
       <button>
-            <Link to="/sidebar">Back</Link>
+            <Link to="/S5">Back</Link>
           </button>
     </div>
   );

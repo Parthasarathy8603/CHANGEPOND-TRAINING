@@ -26,7 +26,7 @@ const ExamPaymentList = () => {
   return (
     <div>
       <h1>Exam Payments List</h1>
-      <table>
+      <table className='table table-bordered'>
         <thead>
           <tr>
             <th>ID</th>
@@ -42,14 +42,14 @@ const ExamPaymentList = () => {
         <tbody>
           {examPayments.map((payment) => (
             <tr key={payment.id}>
-              <td>{payment.id}</td>
-              <td>{payment.regId}</td>
-              <td>{payment.fullName}</td>
-              <td>{payment.courseId}</td>
-              <td>{payment.courseName}</td>
-              <td>{payment.examFees}</td>
-              <td>{payment.paymentType}</td>
-              <td>{payment.paydate}</td>
+              <td className='text-center'>{payment.id}</td>
+              <td className='text-center'>{payment.regId}</td>
+              <td className='text-center'>{payment.fullName}</td>
+              <td className='text-center'>{payment.courseId}</td>
+              <td className='text-center'>{payment.courseName}</td>
+              <td className='text-center'>{payment.examFees}</td>
+              <td className='text-center'>{payment.paymentType}</td>
+              <td className='text-center'>{payment.paydate}</td>
             </tr>
           ))}
         </tbody>

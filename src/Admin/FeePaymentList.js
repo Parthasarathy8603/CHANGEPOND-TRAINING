@@ -26,7 +26,7 @@ const FeePaymentList = () => {
   return (
     <div>
       <h1>Fee Payments List</h1>
-      <table>
+      <table className='table table-bordered'>
         <thead>
           <tr>
             <th>ID</th>
@@ -46,18 +46,18 @@ const FeePaymentList = () => {
         <tbody>
           {feePayments.map((payment) => (
             <tr key={payment.id}>
-              <td>{payment.id}</td>
-              <td>{payment.regId}</td>
-              <td>{payment.fullName}</td>
-              <td>{payment.courseId}</td>
-              <td>{payment.courseName}</td>
-              <td>{payment.totalCourseFee}</td>
-              <td>{payment.paymentType}</td>
-              <td>{payment.amountPay}</td>
-              <td>{payment.pendingAmount}</td>
-              <td>{payment.paymentOption}</td>
-              <td>{payment.installcount}</td>
-              <td>{payment.paydate}</td>
+              <td className='text-center'>{payment.id}</td>
+              <td className='text-center'>{payment.regId}</td>
+              <td className='text-center'>{payment.fullName}</td>
+              <td className='text-center'>{payment.courseId}</td>
+              <td className='text-center'>{payment.courseName}</td>
+              <td className='text-center'>{payment.totalCourseFee}</td>
+              <td className='text-center'>{payment.paymentType}</td>
+              <td className='text-center'>{payment.amountPay}</td>
+              <td className='text-center'>{payment.pendingAmount}</td>
+              <td className='text-center'>{payment.paymentOption}</td>
+              <td className='text-center'>{payment.installcount}</td>
+              <td className='text-center'>{payment.paydate}</td>
             </tr>
           ))}
         </tbody>

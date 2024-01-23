@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CardDetails = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const CardDetails = () => {
       [name]: value,
     }));
   };
+  const navigate =useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,17 +32,18 @@ const CardDetails = () => {
       expirationDate: '',
       cvv: '',
     });
+    navigate("/S5");
   }
   };
 
   return (
     <div className="credit-card-form">
-      <h1>Enter Credit Card Details</h1>
+      <h1>Enter Card Details</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Card Number:</label>
           <input
-            type="text"
+            type="number"
             name="cardNumber"
             value={formData.cardNumber}
             onChange={handleChange}
@@ -63,7 +66,7 @@ const CardDetails = () => {
         <div className="form-group">
           <label>Expiration Date:</label>
           <input
-            type="text"
+            type="number"
             name="expirationDate"
             value={formData.expirationDate}
             onChange={handleChange}
@@ -75,7 +78,7 @@ const CardDetails = () => {
         <div className="form-group">
           <label>CVV:</label>
           <input
-            type="text"
+            type="number"
             name="cvv"
             value={formData.cvv}
             onChange={handleChange}
@@ -84,7 +87,7 @@ const CardDetails = () => {
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button className='btn' type="submit" style={{borderRadius:'10px',width:'100%',backgroundColor:'rgb(80, 245, 15,0.8)'}}>Submit</button>
       </form>
     </div>
   );

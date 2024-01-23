@@ -43,15 +43,14 @@ const App = () => {
   
 
 
-     {/* <Navbar></Navbar>
+     <Navbar></Navbar>
 <NavbarAdmin></NavbarAdmin>
 <AdmSideNavRoute></AdmSideNavRoute>
-<Footer></Footer> */}
+<Footer></Footer>
 
- <Navbar></Navbar>
- <StdSideNavRoute></StdSideNavRoute>
- {/* <StdSideNav></StdSideNav>  */}
- <Footer></Footer>
+ {/* <Navbar></Navbar>
+ <StdSideNavRoute></StdSideNavRoute> 
+   <Footer></Footer> */}
 
     </div>
   );

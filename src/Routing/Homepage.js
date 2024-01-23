@@ -11,8 +11,12 @@ import PaymentPage from '../Fees/PaymentPage';
 import CardDetails from '../Fees/CardDetails';
 import UpiPaymentForm from '../Fees/UpiPaymentForm';
 import CourseTable from '../Fees/CourseTable';
-
-
+import AdminCourseTable from '../Admin/AdminCourseTable';
+import AdminCourseAdd from '../Admin/AdminCourseAdd';
+import AdminCourseEdit from '../Admin/AdminCourseEdit';
+import FeePaymentList from '../Admin/FeePaymentList';
+import ExamPaymentList from '../Admin/ExamPaymentList';
+import AdminSideBar from '../Component/AdminSideBar';
 
  class Homepage extends Component {
     render() {
@@ -24,7 +28,7 @@ import CourseTable from '../Fees/CourseTable';
                
                 <Routes>
                   
-                    <Route path='/' element={<SideBar/>}></Route>
+                     {/* <Route path='/sidebar' element={<SideBar/>}></Route>
                     <Route path='/registration-fees' element={<StudentFormComponent/>}></Route>
                     <Route path='/course-fee-details' element={<CourseTable/>}></Route>
                     <Route path='/exam-fees' element={<ExamFees/>}></Route>
@@ -33,9 +37,16 @@ import CourseTable from '../Fees/CourseTable';
                     <Route path='/payment' element={<PaymentPage/>}></Route>
                     <Route path='/upi' element={<UpiPaymentForm/>}></Route>
 
+
+                     <Route path='/' element={<AdminSideBar/>}></Route>
+                     <Route path='/admincourses' element={<AdminCourseTable></AdminCourseTable>}></Route>
+                    <Route path='/feelist' element={<FeePaymentList></FeePaymentList>}></Route>
+                    <Route path='/examfeelist' element={<ExamPaymentList></ExamPaymentList>}></Route>
+                    <Route path='/addcourse' element={<AdminCourseAdd/>}></Route>
+                    <Route path='/editcourse/:id' element={<AdminCourseEdit/>}></Route>  */}
                 </Routes>
                
-              </BrowserRouter>
+              </BrowserRouter> 
               
             </div>
         )

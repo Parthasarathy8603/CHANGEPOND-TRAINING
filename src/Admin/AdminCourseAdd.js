@@ -42,7 +42,7 @@ const AdminCourseAdd = ({ onAddCourse }) => {
       <div>
         <label htmlFor="courseid">Course ID:</label>
         <input
-          type="text"
+          type="number"
           id="courseid"
           name="courseid"
           value={formData.courseid}
@@ -64,7 +64,7 @@ const AdminCourseAdd = ({ onAddCourse }) => {
       <div>
         <label htmlFor="registrationfees">Registration Fees:</label>
         <input
-          type="text"
+          type="number"
           id="registrationfees"
           name="registrationfees"
           value={formData.registrationfees}
@@ -75,7 +75,7 @@ const AdminCourseAdd = ({ onAddCourse }) => {
       <div>
         <label htmlFor="coursefees">Course Fees:</label>
         <input
-          type="text"
+          type="number"
           id="coursefees"
           name="coursefees"
           value={formData.coursefees}
@@ -86,7 +86,7 @@ const AdminCourseAdd = ({ onAddCourse }) => {
       <div>
         <label htmlFor="totalfees">Total Fees:</label>
         <input
-          type="text"
+          type="number"
           id="totalfees"
           name="totalfees"
           value={formData.totalfees}
@@ -94,7 +94,10 @@ const AdminCourseAdd = ({ onAddCourse }) => {
           required
         />
       </div>
-      <button type="submit">Add Course</button>
+      <button type="submit" style={{margin:'10px', marginLeft:'500px', marginRight:'500px'}}>Add Course</button><br/>
+      <Link to="/admincourses">
+        <button type="button">Back to Admin Courses</button>
+      </Link>
     </form>
   );
 };

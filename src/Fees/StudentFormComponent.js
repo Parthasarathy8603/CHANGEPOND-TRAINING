@@ -65,13 +65,19 @@ const StudentFormComponent = ({ onSubmit }) => {
       return;
     }
 
-
+    const formattedDate = selectedDate.toISOString().split('T')[0];
 const isConfirmed=window.confirm("Do you want to submit this form");
 
 if(isConfirmed)
 {
     try {
-      await axios.post('http://localhost:8080/payments', formData);
+      const updatedFormData = {
+        ...formData,
+        paydate: formattedDate,
+      };
+
+
+      await axios.post('http://localhost:8080/payments', updatedFormData);
       console.log(formData);
        window.location.href = '/payment'; 
     } catch (error) {
@@ -131,7 +137,7 @@ if(isConfirmed)
           <form >
             <div>
               <label>Student ID:</label>
-              <input type="text" name="regId" value={formData.regId} onChange={handleChange} />
+              <input type="number" name="regId" value={formData.regId} onChange={handleChange} />
               {errors.regId && <p className="error">{errors.regId}</p>}
             </div>
 
@@ -143,7 +149,7 @@ if(isConfirmed)
 
             <div>
               <label>Course ID:</label>
-              <input type="text" name="courseId" value={formData.courseId} onChange={handleChange} />
+              <input type="number" name="courseId" value={formData.courseId} onChange={handleChange} />
               {errors.courseId && <p className="error">{errors.courseId}</p>}
             </div>
 
@@ -232,9 +238,9 @@ if(isConfirmed)
               max={new Date().toISOString().split('T')[0]} // Set the maximum date to today
             />
           </div><br/>
-          <button type="submit" style={{borderRadius:'10px'}} onClick={handleSubmit}>Submit</button>
+          <button type="submit" style={{borderRadius:'10px', marginLeft:'120px', marginRight:'120px'}} onClick={handleSubmit}>Submit</button>
           &nbsp;
-            <Link to="/sidebar">
+            <Link to="/S5">
               <button style={{ borderRadius: '10px'}}> Back   </button>
             </Link>
           </form>

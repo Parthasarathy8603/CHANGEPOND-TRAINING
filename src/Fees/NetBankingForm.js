@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Grid, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
 const backgroundImageUrl = 'https://img.freepik.com/free-vector/digital-money-transfer-technology-background_1017-17454.jpg?w=740&t=st=1705571568~exp=1705572168~hmac=0aedfa73049df10cedc977b95ce5125b32c55726023f01799aaf9f25befd44e4';
@@ -31,11 +32,11 @@ const NetbankingForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // Validate input (you may want to perform more thorough validation)
+    
+    
     if (formData.accountNumber && formData.bankName && formData.userName && formData.password) {
       // Process the collected details (you may want to send them to a server or perform other actions)
       console.log('Netbanking details collected:', formData);
@@ -45,6 +46,8 @@ const NetbankingForm = () => {
       // Handle invalid or incomplete input
       console.log('Invalid or incomplete input. Please try again.');
     }
+    
+  
   };
 
   return (
